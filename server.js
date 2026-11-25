@@ -10,6 +10,20 @@ if (!fs.existsSync(DB)) fs.writeFileSync(DB, "[]");
 app.use(express.json({limit:"100kb"}));
 app.get("/", (req,res) => {
   res.sendFile(path.join(__dirname,"index.html"));
+});app.get("/style.css", (req,res) => {
+  res.sendFile(path.join(__dirname,"style.css"));
+});
+
+app.get("/app.js", (req,res) => {
+  res.sendFile(path.join(__dirname,"app.js"));
+});
+
+app.get("/admin.html", (req,res) => {
+  res.sendFile(path.join(__dirname,"admin.html"));
+});
+
+app.get("/admin.js", (req,res) => {
+  res.sendFile(path.join(__dirname,"admin.js"));
 });
 const read = () => JSON.parse(fs.readFileSync(DB,"utf8"));
 const write = x => fs.writeFileSync(DB, JSON.stringify(x,null,2));

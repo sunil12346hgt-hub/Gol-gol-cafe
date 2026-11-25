@@ -8,7 +8,9 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "set-a-strong-password-in-h
 const DB = path.join(__dirname, "orders.json");
 if (!fs.existsSync(DB)) fs.writeFileSync(DB, "[]");
 app.use(express.json({limit:"100kb"}));
-app.use(express.static(path.join(__dirname,"public")));
+app.get("/", (req,res) => {
+  res.sendFile(path.join(__dirname,"index.html"));
+});
 const read = () => JSON.parse(fs.readFileSync(DB,"utf8"));
 const write = x => fs.writeFileSync(DB, JSON.stringify(x,null,2));
 function admin(req,res,next){if(req.get("x-admin-password") !== ADMIN_PASSWORD) return res.status(401).json({error:"Wrong admin password"});next();}

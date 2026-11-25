@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>Gol Gol Cafe | Chef on Cart - Delivery Menu</title>
+<style>
+:root{--black:#080808;--panel:#151515;--gold:#ffd52a;--red:#e51d26;--cream:#fff8df;--muted:#c9c3ad;--line:#4d4218}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:#fff;font-family:Arial,Helvetica,sans-serif}
+header{position:relative;overflow:hidden;text-align:center;padding:30px 16px 26px;background:radial-gradient(ellipse at 50% 0,#3b2600 0%,#111 48%,#050505 100%);border-bottom:4px solid var(--gold)}
+.brand{font:italic bold clamp(38px,8vw,68px)/1 Georgia,serif;letter-spacing:1px;text-shadow:3px 4px 0 #9c1118}.brand span{color:var(--gold)}
+.tag{font:italic bold 17px Georgia,serif;color:#fff;margin-top:12px;letter-spacing:1px}
+.topline{display:flex;justify-content:space-between;gap:12px;max-width:1000px;margin:0 auto 18px;color:var(--gold);font-weight:bold;font-size:14px}
+.topline a{color:inherit;text-decoration:none}
+.delivery{display:inline-block;margin-top:17px;background:var(--gold);color:#111;padding:10px 18px;border-radius:4px;font-weight:900;transform:skew(-5deg)}
+nav{display:flex;justify-content:center;gap:9px;padding:13px 10px;background:#111;border-bottom:1px solid #40340e;position:sticky;top:0;z-index:5;flex-wrap:wrap}
+nav button{border:1px solid #756016;border-radius:5px;padding:12px 18px;background:#1b1b1b;color:#fff;font-weight:bold;font-size:15px;cursor:pointer}
+nav button.active,nav button:hover,.primary{background:var(--gold);color:#111}
+main{max-width:1100px;margin:auto;padding:20px 18px 55px}
+.hero{background:linear-gradient(110deg,#171717,#29200a 60%,#151515);border:1px solid #7d6412;border-radius:14px;text-align:center;padding:26px 18px;margin:5px 0 25px}
+.hero h1{font:italic bold clamp(30px,6vw,48px) Georgia,serif;margin:0 0 9px}.hero h1 span{color:var(--gold)}
+.hero p{font-size:16px;color:#eee;margin:0 0 16px}.reward{display:inline-block;background:var(--gold);color:#111;padding:10px 17px;border-radius:4px;font-weight:900}
+.section-title{font:italic bold 29px Georgia,serif;color:var(--gold);margin:28px 0 15px;border-bottom:2px solid #5f4c0c;padding-bottom:9px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.item,.panel{background:linear-gradient(145deg,#1a1a1a,#101010);border:1px solid #57470f;border-radius:12px;padding:17px;box-shadow:0 5px 18px #000}
+.item h3{font:italic bold 23px Georgia,serif;color:var(--gold);margin:0 0 12px;padding:8px 10px;background:linear-gradient(90deg,#a90f16,#5e080d);border-radius:5px}
+.menu-line{display:flex;justify-content:space-between;gap:10px;padding:7px 2px;border-bottom:1px dashed #51451e;font-size:15px;align-items:center}
+.menu-line:last-of-type{border-bottom:0}.menu-line strong{color:var(--gold);white-space:nowrap}
+.item button{width:100%;margin-top:12px;border:0;border-radius:6px;background:var(--gold);color:#111;padding:11px;font-size:15px;font-weight:900;cursor:pointer}
+.item button:hover,.checkout button:hover{background:#ffe779}.item button:disabled{opacity:.45;cursor:not-allowed}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.panel h2{font:italic bold 27px Georgia,serif;color:var(--gold);margin:0 0 15px}
+.cartrow{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #403714}
+.cartrow button{border:0;background:var(--gold);color:#111;border-radius:5px;padding:5px 10px;font-weight:bold}
+input,textarea{width:100%;padding:13px;border:1px solid #76601a;border-radius:7px;font-size:16px;margin:7px 0 14px;background:#0c0c0c;color:#fff}
+label{font-weight:bold;font-size:14px;color:var(--gold)}.total{font-size:22px;font-weight:bold;color:var(--gold);margin:18px 0}
+.checkout button,.admin button{width:100%;border:0;border-radius:7px;background:var(--gold);color:#111;padding:14px;font-size:16px;font-weight:900;cursor:pointer}
+.hidden{display:none!important}.note{color:var(--muted);font-size:13px;line-height:1.5}
+.contact{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px 0;color:var(--gold);font-weight:bold}.contact a{color:inherit}
+footer{text-align:center;background:#111;color:#e9d6ad;padding:24px;border-top:3px solid var(--gold)}
+.admin-list{display:grid;grid-template-columns:1fr 110px 45px;gap:8px;align-items:center;margin:10px 0}.admin-list input{margin:0}.small{font-size:13px}
+@media(max-width:680px){main{padding:14px 11px 35px}.topline{font-size:12px}.brand{font-size:43px}.tag{font-size:14px}.hero{padding:23px 12px}.grid{gap:9px}.item{padding:11px 9px;border-radius:9px}.item h3{font-size:18px;padding:8px 6px}.menu-line{font-size:13px;gap:5px;padding:7px 0}.item button{padding:10px 5px;font-size:13px}.layout{grid-template-columns:1fr}nav{gap:6px}nav button{padding:10px 12px;font-size:13px}.section-title{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topline"><a href="tel:8561909528">☎ Ashish: 8561909528</a><a href="tel:9368351701">☎ Rohit: 9368351701</a></div>
+  <div class="brand">GOL GOL <span>CAFE</span></div>
+  <div class="tag">CHEF ON CART • DELICIOUS FOOD, ANYTIME, ANYWHERE</div>
+  <div class="delivery">MINIMUM HOME DELIVERY ₹200/-</div>
+</header>
+<nav>
+<button class="active" data-tab="menu">Menu &amp; Order</button>
+<button data-tab="rewards">My Rewards</button>
+<button data-tab="admin">Admin</button>
+</nav>
+<main>
+<section id="menu">
+<div class="hero"><h1>Delicious Food… <span>Good Mood!</span></h1><p>Choose your favourites and add them to your cart.</p><span class="reward">6 COMPLETED ORDERS = 1 FREE ITEM</span></div>
+<h2 class="section-title">Our Delivery Menu</h2>
+<div class="grid" id="menuGrid"></div>
+<div class="layout">
+<div class="panel"><h2>Your Cart</h2><div id="cartItems">Cart is empty.</div><div class="total" id="total">Total: ₹0</div><p class="note" id="deliveryNote">Minimum home delivery order: ₹200.</p></div>
+<div class="panel checkout"><h2>Checkout</h2>
+<form id="orderForm"><label for="customer">Name</label><input id="customer" required placeholder="Your name">
+<label for="mobile">Mobile number</label><input id="mobile" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number">
+<label for="address">Delivery address</label><textarea id="address" rows="2" required placeholder="Full delivery address"></textarea>
+<label for="special">Special note</label><textarea id="special" rows="2" placeholder="Any special request"></textarea>
+<button type="submit">Place Order</button></form><p class="note">Orders placed here are saved on this device in demo mode. Call the numbers above to confirm delivery.</p></div>
+</div>
+<div class="contact"><a href="tel:8561909528">Call Ashish: 8561909528</a><a href="tel:9368351701">Call Rohit: 9368351701</a></div>
+</section>
+<section id="rewards" class="hidden">
+<div class="hero"><h1>My <span>Rewards</span></h1><p>Enjoy a little something extra with every visit.</p><span class="reward">6 COMPLETED ORDERS = 1 FREE ITEM</span></div>
+<div class="panel"><h2>Your Progress</h2><p id="rewardCount">Completed orders: 0 / 6</p><div style="height:14px;background:#333;border-radius:20px;overflow:hidden"><div id="rewardBar" style="height:100%;width:0;background:#ffd52a"></div></div><p id="rewardMessage">Place and complete 6 orders to earn a free item.</p></div>
+</section>
+<section id="admin" class="hidden">
+<div class="hero"><h1>Admin <span>Panel</span></h1><p>Manage menu prices and mark customer orders completed.</p></div>
+<div class="panel"><h2>Admin Login</h2><label for="pin">Admin PIN</label><input id="pin" type="password" placeholder="Enter PIN"><button class="primary" id="loginBtn">Login</button><p class="note">Demo PIN: 1234. Change this before public use.</p></div>
+<div id="adminArea" class="hidden">
+<div class="panel"><h2>Edit Menu Prices</h2><div id="adminMenu"></div><button id="saveMenu">Save Menu</button></div>
+<div class="panel" style="margin-top:16px"><h2>Customer Orders</h2><div id="ordersList">No orders yet.</div></div>
+</div>
+</section>
+</main>
+<footer>GOL GOL CAFE • CHEF ON CART • FRESH BITES • GOOD VIBES</footer>
+<script>
+const defaults = [
+{id:1,category:"Maggi",name:"Masala Maggi",price:40,emoji:"🍜"},{id:2,category:"Maggi",name:"Masala Veg.",price:50,emoji:"🍜"},{id:3,category:"Maggi",name:"Cheese Masala",price:60,emoji:"🍜"},{id:4,category:"Maggi",name:"Cheese Veg.",price:70,emoji:"🍜"},{id:5,category:"Maggi",name:"Cheese Corn",price:70,emoji:"🍜"},{id:6,category:"Maggi",name:"Tandoori Veg.",price:70,emoji:"🍜"},{id:7,category:"Maggi",name:"Makhni Veg & Paneer",price:90,emoji:"🍜"},
+{id:8,category:"Burger",name:"Street Style",price:30,emoji:"🍔"},{id:9,category:"Burger",name:"Special Burger",price:50,emoji:"🍔"},
+{id:10,category:"French Fries",name:"Street Style",price:50,emoji:"🍟"},{id:11,category:"French Fries",name:"Masala French Fries",price:60,emoji:"🍟"},{id:12,category:"French Fries",name:"Peri Peri",price:70,emoji:"🍟"},
+{id:13,category:"Sandwich",name:"Cold Sandwich",price:40,emoji:"🥪"},{id:14,category:"Sandwich",name:"Veg Grilled Sandwich",price:60,emoji:"🥪"},{id:15,category:"Sandwich",name:"Paneer Tikka Sandwich",price:90,emoji:"🥪"},
+{id:16,category:"Wrap",name:"Regular",price:50,emoji:"🌯"},{id:17,category:"Wrap",name:"Tandoori Paneer Wrap",price:70,emoji:"🌯"},
+{id:18,category:"Noodles (Chowmein)",name:"Veg Noodles",price:50,emoji:"🍝"},{id:19,category:"Noodles (Chowmein)",name:"Hakka Noodles",price:60,emoji:"🍝"},
+{id:20,category:"Momos",name:"Steam Momos",price:50,emoji:"🥟"},{id:21,category:"Momos",name:"Fried Momos",price:50,emoji:"🥟"},{id:22,category:"Momos",name:"Kurkure Momos",price:70,emoji:"🥟"},{id:23,category:"Momos",name:"Chili Momos",price:80,emoji:"🥟"},
+{id:24,category:"Spring Roll",name:"Regular Spring Roll",price:50,emoji:"🥠"},{id:25,category:"Spring Roll",name:"Kurkure Spring Roll",price:70,emoji:"🥠"},{id:26,category:"Spring Roll",name:"With Chopsy",price:80,emoji:"🥠"},
+{id:27,category:"Chinese Chillies",name:"Manchurian",price:70,emoji:"🥘"},{id:28,category:"Chinese Chillies",name:"Chili Potato",price:70,emoji:"🥘"},{id:29,category:"Chinese Chillies",name:"Cheese Chili",price:150,emoji:"🥘"},
+{id:30,category:"Stuff Kulcha",name:"Veg Stuff Kulcha",price:50,emoji:"🫓"},{id:31,category:"Stuff Kulcha",name:"Paneer Stuff Kulcha",price:70,emoji:"🫓"},
+{id:32,category:"Poha",name:"Mixture Veg.",price:50,emoji:"🍲"},{id:33,category:"Poha",name:"Butter Veggies",price:60,emoji:"🍲"},
+{id:34,category:"Salad",name:"Green Salad",price:50,emoji:"🥗"},{id:35,category:"Salad",name:"Sweet Corn Salad",price:70,emoji:"🥗"},{id:36,category:"Salad",name:"Paneer Salad",price:100,emoji:"🥗"},
+{id:37,category:"Special Snacks",name:"Potato Veg Shots (15 pcs)",price:60,emoji:"🥔"},{id:38,category:"Special Snacks",name:"Cheese Ball (12 pcs)",price:80,emoji:"🧀"}
+];
+let menu=JSON.parse(localStorage.getItem("ggc_menu_v2")||"null")||defaults;
+let cart={};let orders=JSON.parse(localStorage.getItem("ggc_orders_v2")||"[]");
+let completed=Number(localStorage.getItem("ggc_completed_v2")||0);
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderMenu(){
+ const cats=[...new Set(menu.map(x=>x.category))];
+ document.getElementById("menuGrid").innerHTML=cats.map(cat=>{
+  const items=menu.filter(x=>x.category===cat);
+  return `<article class="item"><h3>${items[0].emoji} ${esc(cat)}</h3>${items.map(x=>`<div class="menu-line"><span>${esc(x.name)}</span><strong>${money(x.price)}</strong></div><button onclick="add(${x.id})">＋ Add ${esc(x.name)}</button>`).join("")}</article>`;
+ }).join("");
+}
+function add(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function renderCart(){
+ let rows=menu.filter(x=>cart[x.id]).map(x=>`<div class="cartrow"><span>${esc(x.name)} × ${cart[x.id]}</span><span>${money(x.price*cart[x.id])} <button onclick="removeItem(${x.id})">−</button></span></div>`);
+ document.getElementById("cartItems").innerHTML=rows.length?rows.join(""):"Cart is empty.";
+ const total=menu.reduce((s,x)=>s+x.price*(cart[x.id]||0),0);
+ document.getElementById("total").textContent="Total: "+money(total);
+ document.getElementById("deliveryNote").textContent=total>=200?"Minimum delivery met.":`Add ${money(200-total)} more for home delivery (minimum ₹200).`;
+}
+function removeItem(id){cart[id]--;if(cart[id]<=0)delete cart[id];renderCart()}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>{
+ document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x===b));
+ ["menu","rewards","admin"].forEach(id=>document.getElementById(id).classList.toggle("hidden",id!==b.dataset.tab));
+ if(b.dataset.tab==="rewards")renderRewards();
+}));
+document.getElementById("orderForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const items=menu.filter(x=>cart[x.id]).map(x=>({name:x.name,qty:cart[x.id],price:x.price}));
+ if(!items.length){alert("Please add an item to your cart.");return}
+ const total=items.reduce((s,x)=>s+x.qty*x.price,0);
+ if(total<200){alert("Minimum home delivery order is ₹200. Please add "+money(200-total)+" more.");return}
+ const order={id:Date.now(),name:document.getElementById("customer").value,mobile:document.getElementById("mobile").value,address:document.getElementById("address").value,note:document.getElementById("special").value,items,total,status:"Pending"};
+ orders.unshift(order);localStorage.setItem("ggc_orders_v2",JSON.stringify(orders));cart={};renderCart();e.target.reset();alert("Order saved on this device. Please call to confirm delivery.");
+});
+function renderRewards(){document.getElementById("rewardCount").textContent=`Completed orders: ${completed%6} / 6`;document.getElementById("rewardBar").style.width=((completed%6)/6*100)+"%";document.getElementById("rewardMessage").textContent=completed>=6&&completed%6===0?"You have earned a free item!":"Place and complete 6 orders to earn a free item."}
+document.getElementById("loginBtn").onclick=()=>{if(document.getElementById("pin").value==="1234"){document.getElementById("adminArea").classList.remove("hidden");renderAdmin()}else alert("Incorrect PIN")};
+function renderAdmin(){document.getElementById("adminMenu").innerHTML=menu.map(x=>`<div class="admin-list"><input data-name="${x.id}" value="${esc(x.name)}" aria-label="Item name"><input data-price="${x.id}" type="number" min="0" value="${x.price}" aria-label="Price"><span class="small">${x.emoji}</span></div>`).join("");renderOrders()}
+document.getElementById("saveMenu").onclick=()=>{menu=menu.map(x=>({...x,name:document.querySelector(`[data-name="${x.id}"]`).value,price:Math.max(0,Number(document.querySelector(`[data-price="${x.id}"]`).value))}));localStorage.setItem("ggc_menu_v2",JSON.stringify(menu));renderMenu();renderAdmin();alert("Menu saved on this device.")};
+function renderOrders(){document.getElementById("ordersList").innerHTML=orders.length?orders.map(o=>`<div class="cartrow" style="display:block"><b>${esc(o.name)}</b> • ${esc(o.mobile)}<br>${esc(o.address||"")}<br>${o.items.map(i=>esc(i.name)+" × "+i.qty).join(", ")}<br><b>${money(o.total)}</b> • ${o.status} ${o.status!=="Completed"?`<button onclick="completeOrder(${o.id})">Mark completed</button>`:""}</div>`).join(""):"No orders yet."}
+function completeOrder(id){orders=orders.map(o=>o.id===id?{...o,status:"Completed"}:o);completed=orders.filter(o=>o.status==="Completed").length;localStorage.setItem("ggc_orders_v2",JSON.stringify(orders));localStorage.setItem("ggc_completed_v2",completed);renderOrders();renderRewards()}
+renderMenu();renderCart();renderRewards();
+</script>
+</body></html>
